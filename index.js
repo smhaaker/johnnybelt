@@ -12,7 +12,7 @@ board.on("ready", function() {
 
     var motors = new five.Motors([
 	{ pins: {  dir: 'P1-11', pwm: 'P1-12' }, invertPWM: true},
-	{ pins: { dir: 'P1-16', pwm: 'P1-33'}, invertPWM: true }
+	{ pins: { dir: 'P1-36', pwm: 'P1-35'}, invertPWM: true }
     ]);
 
     board.repl.inject({
@@ -42,12 +42,12 @@ board.on("ready", function() {
 		motors.forward(255);
 	    }
 	    if (key.name === "down") {
-		motors.a.fwd(speed);
-		motors.b.rev(speed);
+		motors[0].forward(speed);
+		motors[1].reverse(speed);
 	    }
 	    if (key.name === "right") {
-		motors.a.fwd(speed * 0.75);
-		motors.b.fwd(speed * 0.75);
+		motors[0].forward(200);
+		motors[1].reverse(200);
 	    }
 	    if (key.name === "left") {
 		motors.a.rev(speed * 0.75);
